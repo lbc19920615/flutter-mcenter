@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:lbc_mcenter/utils/constants.dart';
-import 'package:lbc_mcenter/utils/styles.dart';
 
 class HomePage extends StatefulWidget {
   @override
