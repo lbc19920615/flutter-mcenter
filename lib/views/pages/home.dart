@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lbc_mcenter/components/simple_swiper_view/simple_swiper_view.dart';
 import 'package:lbc_mcenter/components/transform_page_view/transformer_page_view.dart';
 import 'package:lbc_mcenter/utils/constants.dart';
 import 'package:uuid/uuid.dart';
@@ -32,10 +33,11 @@ class _HomePageState extends State<HomePage> {
   Widget _buildBody() {
     return Column(
       children: [
-        TransformPageView(),
+        SimpleSwiperView(),
+        // TransformPageView(),
         Container(
           child: TextButton(
-            child: Text('button'),
+            child: Text('navigate to detail'),
             onPressed: () {
               Navigator.pushNamed(context, '/article_detail');
             },
