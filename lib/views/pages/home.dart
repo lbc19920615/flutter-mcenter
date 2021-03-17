@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lbc_mcenter/utils/constants.dart';
+import 'package:lbc_mcenter/utils/router.dart';
 import 'package:uuid/uuid.dart';
 
 var uuid = Uuid();
@@ -29,6 +30,47 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildBody() {
+    return Column(
+      children: [
+        Container(
+          child: TextButton(
+            child: Text('button'),
+            onPressed: () {
+              Navigator.pushNamed(context, '/article_detail');
+            },
+          ),
+        ),
+        Container(height: 300, child: _buildList()),
+      ],
+    );
+    // return Container(
+    //     child: Stack(children: <Widget>[
+    //   Row(
+    //     children: [
+    //       TextButton(
+    //         child: Text('button'),
+    //         onPressed: () {
+    //           Navigator.pushNamed(context, '/article_detail');
+    //         },
+    //       )
+    //     ],
+    //   ),
+    //   Row(
+    //     children: [
+    //       Column(
+    //         children: [
+    //           Expanded(
+    //               child: Container(
+    //             child: _buildList(),
+    //           ))
+    //         ],
+    //       )
+    //     ],
+    //   )
+    // ]));
+  }
+
+  Widget _buildList() {
     return new ListView.builder(
         padding: EdgeInsets.all(Constants.commonPadding),
         itemBuilder: (BuildContext _context, int i) {
