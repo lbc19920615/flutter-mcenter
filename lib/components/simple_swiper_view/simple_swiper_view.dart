@@ -1,14 +1,14 @@
 import 'package:flutter/widgets.dart';
 
 class SimpleSwiperView extends StatefulWidget {
-  SimpleSwiperView({Key key}) : super(key: key);
+  SimpleSwiperView({required Key key}) : super(key: key);
 
   @override
   _SimpleSwiperViewState createState() => _SimpleSwiperViewState();
 }
 
 class _SimpleSwiperViewState extends State<SimpleSwiperView> {
-  PageController pageController;
+  late PageController pageController;
 
   int currentPageIndex = 0;
 

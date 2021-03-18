@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lbc_mcenter/utils/constants.dart';
 
 class ArticleDetailPage extends StatefulWidget {
-  ArticleDetailPage({Key key}) : super(key: key);
+  ArticleDetailPage({Key? key}) : super(key: key);
 
   @override
   _ArticleDetailPageState createState() => _ArticleDetailPageState();

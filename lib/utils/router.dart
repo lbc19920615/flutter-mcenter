@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:lbc_mcenter/views/pages/article_detail.dart';
 import 'package:lbc_mcenter/views/pages/home.dart';
 
-Object appRoutes = {
+Map<String, Widget Function(BuildContext)> appRoutes = {
   '/': (context) => HomePage(),
-  '/article_detail': (context) => ArticleDetailPage()
+  '/article_detail': (context) => ArticleDetailPage(
+        key: null,
+      )
 };

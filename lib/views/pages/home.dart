@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:lbc_mcenter/components/simple_swiper_view/simple_swiper_view.dart';
+
 import 'package:lbc_mcenter/components/transform_page_view/transformer_page_view.dart';
+import 'package:lbc_mcenter/buildin_transformers.dart';
+
 import 'package:lbc_mcenter/utils/constants.dart';
 import 'package:uuid/uuid.dart';
 
 var uuid = Uuid();
+
+List<Color> list = [Colors.yellow, Colors.green, Colors.blue];
+
+List<String> images = [
+  "assets/images/Hepburn2.jpg",
+  "assets/images/Hepburn5.jpg",
+  "assets/images/Hepburn4.jpg",
+];
 
 class HomePage extends StatefulWidget {
   @override
@@ -33,16 +43,33 @@ class _HomePageState extends State<HomePage> {
   Widget _buildBody() {
     return Column(
       children: [
-        SimpleSwiperView(),
-        // TransformPageView(),
-        Container(
-          child: TextButton(
-            child: Text('navigate to detail'),
-            onPressed: () {
-              Navigator.pushNamed(context, '/article_detail');
+        // SimpleSwiperView(),
+        TransformerPageView(
+            // loop: true,
+            transformer: AccordionTransformer(),
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                child: Text('sdsds'),
+              );
+              // return new Container(
+              //   color: list[index % list.length],
+              //   child: new Center(
+              //     child: new Text(
+              //       "$index",
+              //       style: new TextStyle(fontSize: 80.0, color: Colors.white),
+              //     ),
+              //   ),
+              // );
             },
-          ),
-        ),
+            itemCount: 3),
+        // Container(
+        //   child: TextButton(
+        //     child: Text('navigate to detail'),
+        //     onPressed: () {
+        //       Navigator.pushNamed(context, '/article_detail');
+        //     },
+        //   ),
+        // ),
         Container(height: 300, child: _buildList()),
       ],
     );
