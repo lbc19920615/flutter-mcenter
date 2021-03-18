@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lbc_mcenter/components/transform_page_view/index_controller.dart';
 import 'package:lbc_mcenter/components/transform_page_view/page_transform_builder.dart';
 
 const int kMaxValue = 2000000000;
@@ -21,8 +22,45 @@ class TransformPageView extends StatefulWidget {
   /// Same as [PageView.physics]
   final ScrollPhysics physics;
 
+  /// Set to false to disable page snapping, useful for custom scroll behavior.
+  /// Same as [PageView.pageSnapping]
+  final bool pageSnapping;
+
+  /// Called whenever the page in the center of the viewport changes.
+  /// Same as [PageView.onPageChanged]
+  final ValueChanged<int> onPageChanged;
+
+  /// itemBuilder as PageView.itemBuilder
+  final IndexedWidgetBuilder itemBuilder;
+
+  // See [IndexController.mode],[IndexController.next],[IndexController.previous]
+  final IndexController controller;
+
+  /// Animation duration
+  final Duration duration;
+
+  /// Animation curve
+  final Curve curve;
+
+  /// Set true to open infinity loop mode.
+  final bool loop;
+
+  /// This value is only valid when `pageController` is not set,
+  final int itemCount;
+
   TransformPageView(
-      {Key key, this.transformer, this.scrollDirection, this.physics})
+      {Key key,
+      this.transformer,
+      this.scrollDirection,
+      this.physics,
+      this.pageSnapping,
+      this.onPageChanged,
+      this.itemBuilder,
+      this.controller,
+      this.duration,
+      this.curve,
+      this.loop,
+      this.itemCount})
       : super(key: key);
 
   @override
