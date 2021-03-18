@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class SimpleSwiperView extends StatefulWidget {
-  SimpleSwiperView({required Key key}) : super(key: key);
+  SimpleSwiperView({Key? key}) : super(key: key);
 
   @override
   _SimpleSwiperViewState createState() => _SimpleSwiperViewState();
@@ -16,7 +16,8 @@ class _SimpleSwiperViewState extends State<SimpleSwiperView> {
   void initState() {
     super.initState();
 
-    pageController = new PageController(initialPage: 0, keepPage: true);
+    pageController = new PageController(
+        initialPage: 0, keepPage: true, viewportFraction: 0.8);
 
     ///PageView设置滑动监听
     // pageController.addListener(() {

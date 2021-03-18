@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lbc_mcenter/components/simple_swiper_view/simple_swiper_view.dart';
 
 import 'package:lbc_mcenter/components/transform_page_view/transformer_page_view.dart';
 import 'package:lbc_mcenter/buildin_transformers.dart';
@@ -11,9 +12,9 @@ var uuid = Uuid();
 List<Color> list = [Colors.yellow, Colors.green, Colors.blue];
 
 List<String> images = [
-  "assets/images/Hepburn2.jpg",
-  "assets/images/Hepburn5.jpg",
-  "assets/images/Hepburn4.jpg",
+  "assets/images/undraw_design_notes_8dmv.png",
+  "assets/images/undraw_design_notes_8dmv.png",
+  "assets/images/undraw_design_notes_8dmv.png",
 ];
 
 class HomePage extends StatefulWidget {
@@ -44,24 +45,29 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: [
         // SimpleSwiperView(),
-        TransformerPageView(
-            // loop: true,
-            transformer: AccordionTransformer(),
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                child: Text('sdsds'),
-              );
-              // return new Container(
-              //   color: list[index % list.length],
-              //   child: new Center(
-              //     child: new Text(
-              //       "$index",
-              //       style: new TextStyle(fontSize: 80.0, color: Colors.white),
-              //     ),
-              //   ),
-              // );
-            },
-            itemCount: 3),
+        Container(
+          height: 200,
+          child: TransformerPageView(
+              loop: true,
+              // transformer: ScaleAndFadeTransformer(),
+              viewportFraction: 0.8,
+              itemBuilder: (BuildContext context, int index) {
+                var i = index % list.length;
+                return new Container(
+                  color: list[i],
+                  child: new Center(
+                    // child: new Text(
+                    //   "$index",
+                    //   style: new TextStyle(fontSize: 80.0, color: Colors.white),
+                    // ),
+                    child: Image.asset(
+                      images[i],
+                    ),
+                  ),
+                );
+              },
+              itemCount: 3),
+        ),
         // Container(
         //   child: TextButton(
         //     child: Text('navigate to detail'),
