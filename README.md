@@ -19,3 +19,4 @@ samples, guidance on mobile development, and a full API reference.
 ## reference
 
 - https://github.com/acelords/flutter-starter-kit
+- https://github.com/77Y/flutter_awesome#awesome-flutter
