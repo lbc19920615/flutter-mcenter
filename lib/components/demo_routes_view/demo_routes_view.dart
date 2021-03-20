@@ -10,7 +10,11 @@ class _DemoRoutesViewState extends State<DemoRoutesView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(children: _buttonList()),
+      height: 100,
+      child: SingleChildScrollView(
+          //滑动的方向 Axis.vertical为垂直方向滑动，Axis.horizontal 为水平方向
+          scrollDirection: Axis.vertical,
+          child: Column(children: _buttonList())),
     );
   }
 
