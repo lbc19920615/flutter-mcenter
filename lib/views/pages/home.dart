@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lbc_mcenter/components/simple_swiper_view/simple_swiper_view.dart';
+import 'package:lbc_mcenter/components/demo_routes_view/demo_routes_view.dart';
+
+import 'package:lbc_mcenter/var.dart';
+
+// import 'package:lbc_mcenter/components/simple_swiper_view/simple_swiper_view.dart';
 
 import 'package:lbc_mcenter/components/transform_page_view/transformer_page_view.dart';
 import 'package:lbc_mcenter/buildin_transformers.dart';
@@ -8,14 +12,6 @@ import 'package:lbc_mcenter/utils/constants.dart';
 import 'package:uuid/uuid.dart';
 
 var uuid = Uuid();
-
-List<Color> list = [Colors.yellow, Colors.green, Colors.blue];
-
-List<String> images = [
-  "assets/images/5516.jpg_wh300.jpg",
-  "assets/images/swiper1.jpg",
-  "assets/images/swiper2.jpg",
-];
 
 class HomePage extends StatefulWidget {
   @override
@@ -52,25 +48,18 @@ class _HomePageState extends State<HomePage> {
               transformer: ScaleAndFadeTransformer(),
               viewportFraction: 0.8,
               itemBuilder: (BuildContext context, int index) {
-                var i = index % list.length;
+                var i = index % colorList.length;
                 return new Container(
-                  color: list[i],
+                  color: colorList[i],
                   child: Image.asset(
-                    images[i],
+                    bannerImages[i],
                     fit: BoxFit.cover,
                   ),
                 );
               },
               itemCount: 3),
         ),
-        // Container(
-        //   child: TextButton(
-        //     child: Text('navigate to detail'),
-        //     onPressed: () {
-        //       Navigator.pushNamed(context, '/article_detail');
-        //     },
-        //   ),
-        // ),
+        DemoRoutesView(),
         Container(height: 300, child: _buildList()),
       ],
     );
