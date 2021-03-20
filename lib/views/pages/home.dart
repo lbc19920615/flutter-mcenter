@@ -12,9 +12,9 @@ var uuid = Uuid();
 List<Color> list = [Colors.yellow, Colors.green, Colors.blue];
 
 List<String> images = [
-  "assets/images/undraw_design_notes_8dmv.png",
-  "assets/images/undraw_design_notes_8dmv.png",
-  "assets/images/undraw_design_notes_8dmv.png",
+  "assets/images/5516.jpg_wh300.jpg",
+  "assets/images/swiper1.jpg",
+  "assets/images/swiper2.jpg",
 ];
 
 class HomePage extends StatefulWidget {
@@ -49,20 +49,15 @@ class _HomePageState extends State<HomePage> {
           height: 200,
           child: TransformerPageView(
               loop: true,
-              // transformer: ScaleAndFadeTransformer(),
+              transformer: ScaleAndFadeTransformer(),
               viewportFraction: 0.8,
               itemBuilder: (BuildContext context, int index) {
                 var i = index % list.length;
                 return new Container(
                   color: list[i],
-                  child: new Center(
-                    // child: new Text(
-                    //   "$index",
-                    //   style: new TextStyle(fontSize: 80.0, color: Colors.white),
-                    // ),
-                    child: Image.asset(
-                      images[i],
-                    ),
+                  child: Image.asset(
+                    images[i],
+                    fit: BoxFit.cover,
                   ),
                 );
               },
